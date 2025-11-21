@@ -55,6 +55,8 @@
                   kernelImageName
                   ;
 
+                anyKernelVariant = "osm0sis";
+
                 kernelSU.enable = false;
                 susfs.enable = false;
               };
