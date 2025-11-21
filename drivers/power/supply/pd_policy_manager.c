@@ -15,6 +15,8 @@
 #include <dt-bindings/iio/qti_power_supply_iio.h>
 //#include <linux/qti_power_supply.h>
 #include "pd_policy_manager.h"
+#include "../../usb/typec/tcpc/inc/tcpm.h"
+#include "../../usb/typec/tcpc/inc/tcpci_core.h"
 
 #include <linux/err.h>
 #include <linux/seq_file.h>
