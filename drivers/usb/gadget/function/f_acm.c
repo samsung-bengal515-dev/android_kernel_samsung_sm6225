@@ -532,7 +532,6 @@ static int acm_cdc_notify(struct f_acm *acm, u8 type, u16 value,
 
 static int acm_notify_serial_state(struct f_acm *acm)
 {
-	struct usb_composite_dev *cdev = acm->port.func.config->cdev;
 	int			status;
 	__le16			serial_state;
 
