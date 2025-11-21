@@ -20,15 +20,10 @@
               # pkgs.linuxPackages.kernel.configEnv
             ];
           };
-          kernelsu = {
-            default = {
+          kernelsu =
+            let
               arch = "arm64";
-              anyKernelVariant = "kernelsu";
               clangVersion = "18";
-
-              kernelSU.enable = false;
-              susfs.enable = false;
-
               kernelPatches = [
                 (pkgs.fetchpatch {
                   url = "https://github.com/cdpkp/android_kernel_tree_samsung_a05s/commit/72c67f9b85b492a8ba500ce2a03eff1bd78f6b9e.patch";
@@ -46,8 +41,39 @@
               kernelImageName = "Image";
               kernelSrc = ./.;
               oemBootImg = ./oem-boot.img;
+            in
+            rec {
+              default = stock;
+              kernelsu = {
+                inherit
+                  arch
+                  clangVersion
+                  kernelPatches
+                  kernelDefconfigs
+                  kernelSrc
+                  oemBootImg
+                  kernelImageName
+                  ;
+              };
+              stock = {
+                inherit
+                  arch
+                  clangVersion
+                  kernelPatches
+                  kernelDefconfigs
+                  kernelSrc
+                  oemBootImg
+                  kernelImageName
+                  ;
+
+                anyKernelVariant = "kernelsu";
+
+                kernelSU = {
+                  enable = true;
+                  variant = "sukisu-susfs";
+                };
+              };
             };
-          };
         };
     };
 }
