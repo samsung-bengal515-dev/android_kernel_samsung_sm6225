@@ -89,7 +89,7 @@
 
                   kernelSU = {
                     enable = true;
-                    variant = "sukisu-susfs";
+                    variant = "next";
                   };
 
                   susfs = {
