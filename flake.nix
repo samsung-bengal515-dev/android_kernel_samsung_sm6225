@@ -82,7 +82,6 @@
                     ;
 
                   kernelPatches = patches ++ [
-                    ./kernelsu.patch
                     (pkgs.fetchpatch {
                       url = "https://raw.githubusercontent.com/WildKernels/kernel_patches/22a2d296b09c936ee11c7b9c2580b7275bf5b02a/69_hide_stuff.patch";
                       hash = "sha256-aPIHwwBdZzWxdUPUnHJjUB/h8kNoYNZsOryFMi89iLQ=";
