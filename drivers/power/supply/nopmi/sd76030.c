@@ -2912,7 +2912,7 @@ static int sd76030_tcpc_notifier_call(struct notifier_block *pnb,
 					noti->typec_state.polarity, noti->typec_state.new_state);
 			//if( upm6918_get_vbus_type(upm) == UPM6918_VBUS_NONE || upm6918_get_vbus_type(upm) ==  UPM6918_VBUS_UNKNOWN
 			//		|| upm->chg_type == POWER_SUPPLY_TYPE_UNKNOWN) {
-			if(vbus_stat == 0 || chip->chg_type == POWER_SUPPLY_USB_TYPE_UNKNOWN){
+			if(vbus_stat == 0 || chip->chg_type == POWER_SUPPLY_TYPE_UNKNOWN){
 				pr_debug("%s vbus type is none, do force dpdm now.\n",__func__);
 				sd76030_hw_init(chip);
 				sd76030_request_dpdm(chip,true);
